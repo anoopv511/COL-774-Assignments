@@ -51,6 +51,8 @@ sns.regplot(x_vals,y_vals,fit_reg=False,marker='.',color='red')
 plt.title("Locally Weighted Linear Regression")
 plt.xlabel("X")
 plt.ylabel("Y")
+red_patch = [plt.plot([],[],marker=".",ms=10,ls="",mec=None,color='r',label=r'$\tau = 0.8$')[0]]
+plt.legend(handles=red_patch,loc=2)
 plt.show()
 
 ##################################
@@ -74,7 +76,8 @@ red_patch = mpatches.Patch(color='r', label=r'$\tau = 0.1$')
 green_patch = mpatches.Patch(color='g', label=r'$\tau = 0.3$')
 magenta_patch = mpatches.Patch(color='m', label=r'$\tau = 2$')
 yellow_patch = mpatches.Patch(color='y', label=r'$\tau = 10$')
-plt.legend(handles=[red_patch,green_patch,magenta_patch,yellow_patch])
+patches = [plt.plot([],[],marker=".",ms=10,ls="",mec=None,color=colors[i],label=r'$\tau = {0}$'.format(tau_list[i]))[0] for i in range(len(tau_list))]
+plt.legend(handles=patches)
 plt.show()
 
 ##################################
