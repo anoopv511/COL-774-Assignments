@@ -104,7 +104,10 @@ plt.xlabel("Fresh Water")
 plt.ylabel("Marine Water")
 neg_patch = plt.plot([],[],marker=".",ms=10,ls="",mec=None,color='red',label="Canada")[0]
 pos_patch = plt.plot([],[],marker="P",ms=10,ls="",mec=None,color='blue',label="Alaska")[0]
-plt.legend(handles=[pos_patch,neg_patch],loc=2)
+mag_patch = plt.plot([],[],color='m',label=r'$\Sigma_0 \neq \Sigma_1$')[0]
+green_patch = plt.plot([],[],color='g',label=r'$\Sigma_0 = \Sigma_1$')[0]
+axes.add_artist(plt.legend(handles=[pos_patch,neg_patch],loc=2))
+axes.add_artist(plt.legend(handles=[mag_patch,green_patch],loc=4))
 plt.show()
 
 ##################################
