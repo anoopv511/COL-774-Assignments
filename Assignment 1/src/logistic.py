@@ -27,10 +27,11 @@ while(cost > 0.0001 and iterations < 10):       # Stopping Criteria
     print(iterations," - ",cost)
 
 print("Final Cost - ",cost)
-print("Final Parameters - {0},{1}".format(theta[0],theta[1]))
+print("Final Parameters - {0},{1},{2}".format(theta[0],theta[1],theta[2]))
 
 # theta[0] = -0.2130308
 # theta[1] = -2.65801937
+# theta[2] = 2.66106075
 
 ##################################
 
