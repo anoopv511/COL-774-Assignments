@@ -5,17 +5,22 @@ import seaborn as sns
 x = np.loadtxt('../data/q4x.dat')
 y = np.loadtxt('../data/q4y.dat',dtype=str).reshape(-1,1)
 
+x = (x - np.mean(x))/np.std(x)                  # Normalize
+
 ############ Part (a) ############
 
 phi = (y == 'Alaska').sum()/float(y.shape[0])   # 'Alaska' = 1; 'Canada' = 0
 mu_1 = np.sum((x*(y == 'Alaska')),axis=0)/float((y == 'Alaska').sum())
 mu_0 = np.sum((x*(y == 'Canada')),axis=0)/float((y == 'Canada').sum())
 sigma = np.dot((x - np.where(y == 'Alaska',mu_1,mu_0)).T,(x - np.where(y == 'Alaska',mu_1,mu_0)))/float(y.shape[0])
+print(mu_0)
+print(mu_1)
+print(sigma)
 
-# mu_0 = [137.46, 366.62]
-# mu_1 = [98.38, 429.66]
-# sigma = [[ 287.482,  -26.748],
-#          [ -26.748, 1123.25 ]]
+# mu_0 = [-0.8315402, 0.74891723]
+# mu_1 = [-1.10106488, 1.18368785]
+# sigma = [[0.0136741, -0.00127227],
+#          [-0.00127227, 0.05342744]]
 
 ##################################
 
@@ -63,13 +68,17 @@ mu_1 = np.sum((x*(y == 'Alaska')),axis=0)/float((y == 'Alaska').sum())
 mu_0 = np.sum((x*(y == 'Canada')),axis=0)/float((y == 'Canada').sum())
 sigma_1 = np.dot(((x - mu_1)*(y == 'Alaska')).T,(x - mu_1)*(y == 'Alaska'))/float((y == 'Alaska').sum())
 sigma_0 = np.dot(((x - mu_0)*(y == 'Canada')).T,(x - mu_0)*(y == 'Canada'))/float((y == 'Canada').sum())
+print(mu_0)
+print(mu_1)
+print(sigma_0)
+print(sigma_1)
 
-# mu_0 = [137.46, 366.62]
-# mu_1 = [98.38, 429.66]
-# sigma_0 = [[319.5684, 130.8348],
-#            [130.8348, 875.3956]]
-# sigma_1 = [[ 255.3956, -184.3308],
-#            [-184.3308, 1371.1044]]
+# mu_0 = [-0.8315402, 0.74891723]
+# mu_1 = [-1.10106488, 1.18368785]
+# sigma_0 = [[0.01520029, 0.00622316],
+#            [0.00622316, 0.04163824]]
+# sigma_1 = [[ 0.0121479, -0.0087677],
+#            [-0.0087677, 0.06521665]]
 
 ##################################
 
