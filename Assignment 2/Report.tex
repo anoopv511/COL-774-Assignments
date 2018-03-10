@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.5in,top=0.5in,bottom=0.2in]{geometry}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{scrextend}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{{images/}}
+
+\title{\textbf{\underline{Assignment 2 Report}}}
+\author{Anoop (2015CS10265)}
+
+\begin{document}
+\pagenumbering{gobble}
+\maketitle
+
+\section*{\underline{Text Classification}}
+\subsection*{Part a}
+\begin{addmargin}[0.3in]{0in}
+\textbf{Text Classification using Multinomial Naive Bayes}\\
+Train Accuracy = 0.68448\\
+Test Accuracy = 0.38752
+\end{addmargin}
+\subsection*{Part b}
+\begin{addmargin}[0.3in]{0in}
+\textbf{Text Classification using Random guessing}\\
+Test Accuracy = 0.07264\\ \\
+\textbf{Text Classification using Majority Class}\\
+Test Accuracy = 0.20088
+\end{addmargin}
+\subsection*{Part c}
+\textbf{  Text Classification using Multinomial Naive Bayes - Confusion Matrix}\\
+\begin{wrapfigure}[10]{l}{0.5\textwidth}
+\includegraphics[width=0.5\textwidth]{"Confusion Matrix".png}
+\end{wrapfigure}
+\begin{addmargin}[0.3in]{0in}
+Micro F1 score = 0.2793\\
+Macro F1 score = 0.7800\\
+Class with highest diagonal entry = 1\\
+From the low Micro F1 score, we can infer that there is class imbalance. Also from the Confusion Matrix we can observe that there are more predictions of class 1 and 10. This means that the model is influenced a lot by the class imbalance.
+\end{addmargin}
+\newpage
+\subsection*{Part d}
+\begin{addmargin}[0.3in]{0in}
+\textbf{Text Classification using Multinomial Naive Bayes - \underline{With Stemming}}\\
+Train Accuracy = 0.6798\\
+Test Accuracy = 0.38684\\
+There is not much increase in accuracy as compared with the model with no stopword removal and stemming. This is because of class imbalance that we observed in from the confusion matrix previously.
+\end{addmargin}
+
+\end{document}
