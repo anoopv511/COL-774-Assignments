@@ -4,8 +4,11 @@ import pickle
 
 tokenizer = RegexpTokenizer(r'\w+')
 
-def tokenize(raw):
-    raw = raw.replace("<br />"," ")
+def tokenize(raw,case=False):
+    if not case:
+        raw = raw.lower().replace("<br />"," ")
+    else:
+        raw = raw.replace("<br />"," ")
     return tokenizer.tokenize(raw)
 
 def save(obj,fname):
@@ -16,3 +19,10 @@ def load(fname):
     with open(fname,'rb') as f:
         obj = pickle.load(f)
     return obj
+
+def ngram(doc,n):
+    assert n >= 2, "N-gram should have atleast n = 2"
+    ng = []
+    for idx in range(len(doc)-(n-1)):
+        ng.append(" ".join(doc[idx:idx+n]))
+    return ng
