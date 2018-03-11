@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage[margin=0.5in,top=0.5in,bottom=0.2in]{geometry}
+\usepackage[margin=0.5in,top=0.5in,bottom=0.5in]{geometry}
 \usepackage{amsmath}
 \usepackage{indentfirst}
 \usepackage{scrextend}
@@ -15,24 +15,26 @@
 \maketitle
 
 \section*{\underline{Text Classification}}
-\subsection*{Part a}
+\subsection*{Multinomial Naive Bayes}
 \begin{addmargin}[0.3in]{0in}
-\textbf{Text Classification using Multinomial Naive Bayes}\\
-Train Accuracy = 0.68448\\
-Test Accuracy = 0.38752
+\begin{tabbing}
+Train Accuracy \= = 0.68448\\
+Test Accuracy \> = 0.38752
+\end{tabbing}
 \end{addmargin}
-\subsection*{Part b}
+\subsection*{Random Guessing}
 \begin{addmargin}[0.3in]{0in}
-\textbf{Text Classification using Random guessing}\\
-Test Accuracy = 0.07264\\ \\
-\textbf{Text Classification using Majority Class}\\
+Test Accuracy = 0.07264
+\end{addmargin}
+\subsection*{Majority Class}
+\begin{addmargin}[0.3in]{0in}
 Test Accuracy = 0.20088
 \end{addmargin}
-\subsection*{Part c}
-\textbf{  Text Classification using Multinomial Naive Bayes - Confusion Matrix}\\
+\subsection*{Multinomial Naive Bayes - Confusion Matrix}
 \begin{wrapfigure}[10]{l}{0.5\textwidth}
 \includegraphics[width=0.5\textwidth]{"Confusion Matrix".png}
 \end{wrapfigure}
+\hspace{0.1mm}
 \begin{addmargin}[0.3in]{0in}
 Micro F1 score = 0.2793\\
 Macro F1 score = 0.7800\\
@@ -40,12 +42,75 @@ Class with highest diagonal entry = 1\\
 From the low Micro F1 score, we can infer that there is class imbalance. Also from the Confusion Matrix we can observe that there are more predictions of class 1 and 10. This means that the model is influenced a lot by the class imbalance.
 \end{addmargin}
 \newpage
-\subsection*{Part d}
+\subsection*{Multinomial Naive Bayes - \underline{With Stemming}}
 \begin{addmargin}[0.3in]{0in}
-\textbf{Text Classification using Multinomial Naive Bayes - \underline{With Stemming}}\\
 Train Accuracy = 0.6798\\
 Test Accuracy = 0.38684\\
 There is not much increase in accuracy as compared with the model with no stopword removal and stemming. This is because of class imbalance that we observed in from the confusion matrix previously.
+\end{addmargin}
+\subsection*{Multinomial Naive Bayes - \underline{Feature Engineering}}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabular}{lclcl}
+\textbf{Unigrams + Bigrams}           & \hspace{10mm} & \textbf{Normalized TF-IDF}            & \hspace{10mm} & \textbf{Sublinear TF} \\
+Train Accuracy = 0.40352              & \hspace{10mm} & Train Accuracy = 0.384                & \hspace{10mm} & Train Accuracy = 0.35912 \\
+Test Accuracy \hspace{2pt}  = 0.34868 & \hspace{10mm} & Test Accuracy \hspace{2pt} = 0.34604  & \hspace{10mm} & Test Accuracy \hspace{2pt}  = 0.35144
+\end{tabular}
+\end{addmargin}
+\subsection*{Complementary Multinomial Naive Bayes - \underline{With TF-IDF}}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Train Accuracy \= = 0.53036\\
+Test Accuracy \> = 0.35816
+\end{tabbing}
+\end{addmargin}
+\subsection*{Feature Engineering Report}
+\begin{addmargin}[0.3in]{0in}
+After trying many feature engineering techniques, there is no significant improvement over baseline Multinomial Naive Bayes model. Even with stopword removal and stemming, there is no improvement over the baseline model. This is mainly due to the class imbalance in the training data. After adding more relevant features, there is a reduction in training accuracy. From this we can infer that our original baseline models were overfitting the training data as there was very high difference in train and test accuracies of baseline model.
+\end{addmargin}
+
+\section*{MNIST Handwritten Digit Classification}
+\subsection*{One-vs-One Model}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Train Accuracy \= = 0.9341\\
+Test Accuracy \> = 0.9328
+\end{tabbing}
+\end{addmargin}
+\subsection*{One-vs-All Model}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Train Accuracy \= = 0.87715\\
+Test Accuracy \> = 0.887
+\end{tabbing}
+\end{addmargin}
+\subsection*{Multi-Class SVM using LIBSVM}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabular}{lcl}
+\textbf{Linear Kernel}      & \hspace{20mm} & \textbf{Gaussian Kernel}    \\
+Train Accuracy = 0.40352 & \hspace{20mm} & Train Accuracy = 0.384   \\
+Test Accuracy \hspace{2pt}  = 0.34868 & \hspace{20mm} & Test Accuracy \hspace{2pt} = 0.34604 \\
+\end{tabular}
+\end{addmargin}
+\subsection*{Cross-Validation using LIBSVM}
+\begin{addmargin}[0.3in]{0in}
+\includegraphics[width=0.7\textwidth]{"CV vs Test Accuracy".png}
+\newline
+From the plot we can observe that increasing C is increasing the Cross-Validation as well as Test accuracy. This means by choosing a small value of C we were underfitting the data. From the plot we can observe that there is no much difference between Cross-Validation and Test accuracy. This means that we are not overfitting the data at any point.
+\end{addmargin}
+\subsection*{Best SVM Confusion Matrix}
+\begin{addmargin}[0.3in]{0in}
+\includegraphics[width=0.7\textwidth]{"Best SVM Confusion Matrix".png}
+\end{addmargin}
+\subsection*{Visualization of Misclassified Examples}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabular}{cc}
+\includegraphics[width=0.4\textwidth]{"MisPred1".png} & \includegraphics[width=0.4\textwidth]{"MisPred2".png}\\
+\includegraphics[width=0.4\textwidth]{"MisPred3".png} & \includegraphics[width=0.4\textwidth]{"MisPred4".png}\\
+\end{tabular}
+\newline
+From the mispredictions and confusion matrix we can see that the classifier is confused between similar looking numbers like 4-9, 4-7, 8-9.\\
+Easiest class to classify = 1\\
+Most difficult class to classify = 7\\
 \end{addmargin}
 
 \end{document}
