@@ -30,7 +30,10 @@ test_pred = accuracy(x_test,y_test,log_theta,log_phi,diction,labels,"NB",False,"
 # Train Accuracy = 0.6798
 # Test Accuracy = 0.38684
 
-# Save Model 2
+# Confusion Matrix
+get_conf_matrix(y_test,test_pred,labels,class_label_map,eval=True)
+
+# Save Model
 save((diction,log_theta,log_phi),"../data/tmp/model2.pickle")
 
 del diction,word_counts_per_class

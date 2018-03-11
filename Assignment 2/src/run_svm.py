@@ -21,5 +21,8 @@ if __name__ == "__main__":
         with open(outputPath,'w') as out:
             _ = [out.writelines("{0}\n".format(p)) for p in pred]
     if model == 3:
-        pass
-        
+        libsvm_model = svm_load_model('../mnist_libsvm/best.model')
+        x_test = x_test.tolist()
+        pred, acc, val = svm_predict(np.zeros(len(x_test)).tolist(),x_test,libsvm_model)
+        with open(outputPath,'w') as out:
+            _ = [out.writelines("{0}\n".format(p)) for p in pred]

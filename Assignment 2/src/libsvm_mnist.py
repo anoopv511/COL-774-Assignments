@@ -60,9 +60,3 @@ test_acc, test_mse, test_scc = evaluations(y_test,test_pred)
 print("Gaussian kernel SVM Test Accuracy = {0}".format(test_acc))
 
 ##################################
-
-############ Part (d) ############
-
-
-
-##################################

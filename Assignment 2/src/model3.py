@@ -32,4 +32,10 @@ test_pred = accuracy(x_test,y_test,log_theta,log_phi,diction,labels,"NB",False,"
 # Train Accuracy = 0.40352
 # Test Accuracy = 0.34868
 
+# Confusion Matrix
+get_conf_matrix(y_test,test_pred,labels,class_label_map,eval=True)
+
+# Save Model
+save((diction,log_theta,log_phi),"../data/tmp/model3.pickle")
+
 del diction,feature_counts_per_class
