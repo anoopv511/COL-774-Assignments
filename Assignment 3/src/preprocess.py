@@ -22,5 +22,5 @@ def preprocess(x,encoding):
         if type(encoding[col]) == dict:
             x[col].replace(encoding[col],inplace=True)
         else:
-            x[col] = (x[col] > encoding[col]).astype(np.int64)
+            x[col] = (x[col] >= encoding[col]).astype(np.int64)
     return x
