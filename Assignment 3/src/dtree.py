@@ -312,10 +312,10 @@ print("Validation Accuracy = {0:.5f}".format((p_valid == y_valid).sum()/y_valid.
 p_test = tree.predict(x_test)
 print("Test Accuracy = {0:.5f}".format((p_test == y_test).sum()/y_test.shape[0]))
 
-# Number of Nodes = 4328
-# Train Accuracy = 0.85789
-# Validation Accuracy = 0.83800
-# Test Accuracy = 0.81871
+# Number of Nodes = 2322
+# Train Accuracy = 0.84893
+# Validation Accuracy = 0.83467
+# Test Accuracy = 0.82557
 
 sns.set()
 fig = plt.figure(figsize=(7,5))
