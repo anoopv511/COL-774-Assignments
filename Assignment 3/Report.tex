@@ -165,6 +165,98 @@ Post-Pruning the fully grown decision tree (modified) gives even better validati
 \textbf{n\_estimators} specifies the number of decision trees in the random forest , \textbf{max\_features} restricts the number of features searched over while choosing the split and \textbf{bootstrap} specifies if bootstrap samples are used or not. As compared to greedy post-pruning, these hyperparameters need to be tuned manually. In this case also, searching for the hyperparameters helps rather than greedy post-pruning marginally (over test accuracies).
 \end{addmargin}
 
+\newpage
 \section*{\underline{Neural Networks}}
+\subsection*{Logistic Regression - Scikit-Learn}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Train Accuracy \= = 0.46053 \\
+Test Accuracy \> = 0.35000
+\end{tabbing}
+\end{addmargin}
+\includegraphics[width=0.4\textwidth]{log1.png}
+\includegraphics[width=0.4\textwidth]{log2.png}
+\subsection*{Neural Network - 5 Hidden Units}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Training Time \quad \= = 2.74530s \\
+Train Accuracy \> = 0.89737 \\
+Test Accuracy \> = 0.85000
+\end{tabbing}
+\end{addmargin}
+\includegraphics[width=0.4\textwidth]{nn1.png}
+\includegraphics[width=0.4\textwidth]{nn2.png}
+\subsection*{Neural Networks - Multiple Hidden Units}
+\begin{table}[h!]
+\begin{center}
+\caption{\underline{Hidden Units - Accuracies}}
+\vspace{1mm}
+\label{tab:table6}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Hidden Units} & \textbf{Training Time (s)} & \textbf{Train Accuracy} & \textbf{Test Accuracy} \\
+\hline
+1 & 1.51454 & 0.64211 & 0.56667 \\
+2 & 1.88829 & 0.60789 & 0.58333 \\
+3 & 2.07101 & 0.90000 & 0.85833 \\
+10 & 2.93981 & 0.91053 & 0.82500 \\
+20 & 4.50854 & 0.91316 & 0.82500 \\
+40 & 10.57310 & 0.91053 & 0.82500 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{addmargin}[0in]{0in}
+\includegraphics[width=0.5\textwidth]{nn3.png}
+\includegraphics[width=0.5\textwidth]{nn4.png} \\ \\
+\includegraphics[width=0.5\textwidth]{nn5.png}
+\includegraphics[width=0.5\textwidth]{nn6.png} \\ \\
+\includegraphics[width=0.5\textwidth]{nn7.png}
+\includegraphics[width=0.5\textwidth]{nn8.png} \\ \\
+\end{addmargin}
+\newpage
+\subsection*{Neural Networks - 2 Hidden Layers}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Training Time \quad \= = 3.62151s \\
+Train Accuracy \> = 0.90000 \\
+Test Accuracy \> = 0.85833
+\end{tabbing}
+\end{addmargin}
+\includegraphics[width=0.5\textwidth]{nn9.png}
+\includegraphics[width=0.5\textwidth]{nn10.png}
+\vspace{5mm}
+\begin{addmargin}[0.3in]{0in}
+The decision boundary tries to include more examples (overfitting) as the number of hidden units increase. The ideal number of hidden units is 3 units - Gives a good train and test accuracies and trains quickly. With two hidden layers there is not much change in accuracy but it still takes more time to train.
+\end{addmargin}
+\subsection*{Working with MNIST}
+\subsubsection*{LIBSVM}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Training Time \quad \= = 6.62021s \\
+Train Accuracy \= = 1.00 \\
+Test Accuracy \= = 0.98472
+\end{tabbing}
+\end{addmargin}
+\subsubsection*{Single Perceptron}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Training Time \quad \= = 10.87574s \\
+Train Accuracy \= = 0.97470 \\
+Test Accuracy \= = 0.97556
+\end{tabbing}
+\end{addmargin}
+\subsubsection*{Neural Network - Dynamic Learning Rate}
+\begin{addmargin}[0.3in]{0in}
+\begin{tabbing}
+Training Time \quad \= = 159.88187s \\
+Train Accuracy \= = 0.99880 \\
+Test Accuracy \= = 0.99306
+\end{tabbing}
+\end{addmargin}
+\vspace{5mm}
+\begin{addmargin}[0.3in]{0in}
+LIBSVM does better than a single perceptron in faster time. But the single perceptron can be trained for longer time to get better accuracies. With dynamic learning rate, we get the best test accuracy though it takes longer to train.
+\end{addmargin}
 
 \end{document}
