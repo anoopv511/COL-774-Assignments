@@ -4,7 +4,7 @@ This script gives you the plotting functions for part (b) for Neural net part of
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_decision_boundary(model, X, y):
+def plot_decision_boundary(model, X, y, title):
     """
     Given a model(a function) and a set of points(X), corresponding labels(y), scatter the points in X with color coding
     according to y. Also use the model to predict the label at grid points to get the region for each label, and thus the 
@@ -33,3 +33,4 @@ def plot_decision_boundary(model, X, y):
     plt.ylabel('x2')
     plt.xlabel('x1')
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Spectral)
+    plt.title(title)
