@@ -48,7 +48,7 @@ class kerasNN(BaseEstimator):
 # model.fit(x_train,y_train)
 # print(model.best_params_)
 # best_model = model.best_estimator_
-# best_model.model.fit(x_train,to_categorical(y_train,num_classes=20),epochs=200,batch_size=64)
+# best_model.model.fit(x_train,to_categorical(y_train,num_classes=20),epochs=100,batch_size=64)
 # best_model.model.save("../out/nn/best_nn.h5")
 best_model = load_model("../out/nn/best_nn.h5")
 
