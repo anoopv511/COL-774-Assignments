@@ -17,6 +17,10 @@ for idx,f in enumerate(files):
     categories[idx] = f.split(".")[0]
     
 x_test = np.load("../data/test/test.npy")
+print("Data loaded")
+
+x_train = x_train/255
+x_test = x_test/255
 
 def get_accuracy(y,pred,categories,class_labels):
     act_pred = np.ones(y.shape) * -1
@@ -42,8 +46,8 @@ class_labels = []
 for idx in range(20):
     class_labels.append(np.unique(y_train[train_pred == idx],return_counts=True)[1].argmax())
 
-# pred = model.predict(x_test)
-# print_pred("../out/kmeans/pred1.csv",pred,categories,class_labels)
+pred = model.predict(x_test)
+print_pred("../out/kmeans/pred1.csv",pred,categories,class_labels)
 
 train_pred = model.predict(x_train)
 print("Train Accuracy = {0}".format(get_accuracy(y_train,train_pred,categories,class_labels)))
@@ -76,8 +80,8 @@ for i, model in enumerate(models):
     train_pred = model.predict(x_train)
     train_acc.append(get_accuracy(y_train,train_pred,categories,class_labels))
     print("Train Accuracy (max_iter = {0}) = {1}".format(max_iter[i],train_acc[-1]))
-    # pred = model.predict(x_test)
-    # print_pred("../out/kmeans/preds_{0}.csv".format(i),pred,categories,class_labels)
+    pred = model.predict(x_test)
+    print_pred("../out/kmeans/preds_{0}.csv".format(i),pred,categories,class_labels)
 
 sns.set()
 fig = plt.figure(figsize=(7,5))
